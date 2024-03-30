@@ -17,6 +17,7 @@ export interface IBlog {
 export interface IAuthor {
 	name: string
 	image: { url: string }
+	bio: string
 }
 
 export interface ICategoryAndTags {
