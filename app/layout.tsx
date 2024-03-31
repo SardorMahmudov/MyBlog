@@ -1,4 +1,5 @@
 import { ThemeProvider } from '@/components/providers/theme-provider'
+import { Toaster } from '@/components/ui/sonner'
 import { ChildProps } from '@/types'
 import type { Metadata } from 'next'
 import { Crete_Round, Work_Sans } from 'next/font/google'
@@ -7,13 +8,12 @@ import './globals.css'
 const creteRound = Crete_Round({
 	weight: ['400'],
 	subsets: ['latin'],
-	variable: '--font-Crete_Round',
+	variable: '--font-creteRound',
 })
-
 const workSans = Work_Sans({
-	weight: ['400', '600'],
+	weight: ['500', '600'],
 	subsets: ['latin'],
-	variable: '--font-Work_Sans',
+	variable: '--font-workSans',
 })
 
 export const metadata: Metadata = {
@@ -25,7 +25,9 @@ export const metadata: Metadata = {
 function RootLayout({ children }: ChildProps) {
 	return (
 		<html lang='en' suppressHydrationWarning>
-			<body className={`${creteRound.variable} ${workSans.variable}`}>
+			<body
+				className={`${creteRound.variable} ${workSans.variable} overflow-x-hidden`}
+			>
 				<ThemeProvider
 					attribute='class'
 					defaultTheme='system'
@@ -33,6 +35,7 @@ function RootLayout({ children }: ChildProps) {
 					disableTransitionOnChange
 				>
 					{children}
+					<Toaster position='top-center' />
 				</ThemeProvider>
 			</body>
 		</html>

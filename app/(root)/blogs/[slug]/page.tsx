@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button'
 import { getReadingTime } from '@/lib/utils'
-import { getDetailedBlog } from '@/service/bloge.service'
+import { getDetailedBlog } from '@/service/blog.service'
 import { format } from 'date-fns'
 import parse from 'html-react-parser'
 import {
@@ -19,8 +19,6 @@ import Link from 'next/link'
 
 async function SlugPage({ params }: { params: { slug: string } }) {
 	const blog = await getDetailedBlog(params.slug)
-
-	console.log(blog)
 
 	return (
 		<div className='pt-[15vh] max-w-5xl mx-auto'>
@@ -101,7 +99,7 @@ async function SlugPage({ params }: { params: { slug: string } }) {
 						{blog.author.bio}
 					</p>
 					<Link
-						href={'/'}
+						href={`/author/${blog.author.id}`}
 						className='flex items-center gap-2 hover:text-blue-500 underline transition-colors'
 					>
 						<span>See all posts by this author</span>

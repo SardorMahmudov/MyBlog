@@ -1,6 +1,6 @@
 import BlogCard from '@/components/cards/blog'
 import BgArrow from '@/components/shared/bg-arrow'
-import { getBlogs } from '@/service/bloge.service'
+import { getBlogs } from '@/service/blog.service'
 
 async function HomePage() {
 	const blogs = await getBlogs()
