@@ -3,6 +3,7 @@ import { Toaster } from '@/components/ui/sonner'
 import { ChildProps } from '@/types'
 import type { Metadata } from 'next'
 import { Crete_Round, Work_Sans } from 'next/font/google'
+import NextTopLoader from 'nextjs-toploader'
 import './globals.css'
 
 const creteRound = Crete_Round({
@@ -50,7 +51,9 @@ function RootLayout({ children }: ChildProps) {
 					defaultTheme='system'
 					enableSystem
 					disableTransitionOnChange
+					storageKey='blog-theme'
 				>
+					<NextTopLoader showSpinner={false} />
 					{children}
 					<Toaster position='top-center' />
 				</ThemeProvider>

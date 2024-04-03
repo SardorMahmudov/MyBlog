@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 
 async function ArchivePage() {
 	const blogs = await getArchiveBlogs()
+
 	return (
 		<div className='max-w-6xl mx-auto'>
 			<div className='relative min-h-[40vh] flex items-center justify-end flex-col'>
@@ -48,23 +49,21 @@ async function ArchivePage() {
 						</div>
 					</div>
 					<div className='flex flex-col space-y-2 mt-8'>
-						<div className='flex flex-col space-y-2 mt-8'>
-							{blog.blogs.map(item => (
-								<div
-									className='flex gap-2 text-lg text-muted-foreground'
-									key={item.slug}
+						{blog.blogs.map(item => (
+							<div
+								className='flex gap-2 text-lg text-muted-foreground'
+								key={item.slug}
+							>
+								<p>{format(new Date(item.createdAt), 'dd MMM')}</p>
+								<Dot className='text-white w-8 h-8' />
+								<Link
+									href={`/blogs/${item.slug}`}
+									className='hover:text-white hover:underline cursor-pointer'
 								>
-									<p>{format(new Date(item.createdAt), 'dd MMM')}</p>
-									<Dot className='text-white w-8 h-8' />
-									<Link
-										href={`/blogs/${item.slug}`}
-										className='hover:text-white hover:underline cursor-pointer'
-									>
-										{item.title}
-									</Link>
-								</div>
-							))}
-						</div>
+									{item.title}
+								</Link>
+							</div>
+						))}
 					</div>
 				</>
 			))}

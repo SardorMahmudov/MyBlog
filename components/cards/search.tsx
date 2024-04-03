@@ -5,10 +5,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { DrawerClose } from '../ui/drawer'
 
-const SearchCard = (blog: IBlog) => {
+function SearchCard(blog: IBlog) {
 	return (
 		<Link href={`/blogs/${blog.slug}`}>
-			<DrawerClose className='flext flex-col space-y-2 text-start'>
+			<DrawerClose className='flex flex-col space-y-2 text-start'>
 				<Image
 					width={200}
 					height={200}
@@ -17,7 +17,7 @@ const SearchCard = (blog: IBlog) => {
 					className='rounded-md shadow-xl dark:shadow-white/10'
 				/>
 				<div className='flex items-center gap-2'>
-					<CalendarDays className='w4 h4' />
+					<CalendarDays className='w-4 h-4' />
 					<p className='text-sm'>
 						{format(new Date(blog.createdAt), 'MMM dd, yyyy')}
 					</p>
